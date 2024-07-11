@@ -1,13 +1,13 @@
 npm ERR! code ERESOLVE
 npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR! 
-npm ERR! While resolving: philamila-app@undefined
+npm ERR! While resolving: jobs-app@undefined
 npm ERR! Found: next@12.3.4
 npm ERR! node_modules/next
 npm ERR!   next@"^12.2.5" from the root project
 npm ERR! 
 npm ERR! Could not resolve dependency:
-npm ERR! peer next@"^13.5.0 || ^14.0.0" from @storybook/nextjs@8.1.11
+npm ERR! peer next@"^13.5.0 || ^14.0.0" from @storybook/nextjs@8.2.1
 npm ERR! node_modules/@storybook/nextjs
 npm ERR!   dev @storybook/nextjs@"*" from the root project
 npm ERR! 
@@ -17,7 +17,7 @@ npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
 npm ERR! 
 npm ERR! 
 npm ERR! For a full report see:
-npm ERR! /Users/milenasmirnova/.npm/_logs/2024-07-09T05_48_49_801Z-eresolve-report.txt
+npm ERR! /Users/milenasmirnova/.npm/_logs/2024-07-10T21_31_40_150Z-eresolve-report.txt
 
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /Users/milenasmirnova/.npm/_logs/2024-07-09T05_48_49_801Z-debug-0.log
+npm ERR!     /Users/milenasmirnova/.npm/_logs/2024-07-10T21_31_40_150Z-debug-0.log
