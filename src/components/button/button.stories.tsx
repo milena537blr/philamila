@@ -1,4 +1,4 @@
-import { PlusSquareIcon } from '@chakra-ui/icons';
+import { DeleteIcon } from '@chakra-ui/icons';
 import { Meta, Story } from '@storybook/react';
 
 import { Button, ButtonProps } from './button';
@@ -23,6 +23,20 @@ Default.args = {
 export const WithIcon = Template.bind({});
 
 WithIcon.args = {
-  children: 'Click Me',
-  icon: <PlusSquareIcon />,
+  children: 'Delete',
+  icon: <DeleteIcon />,
+};
+
+export const Loading = Template.bind({});
+
+Loading.args = {
+  children: 'Submit',
+  isLoading: true,
+};
+
+export const Disabled = Template.bind({});
+
+Disabled.args = {
+  children: 'Submit',
+  isDisabled: true,
 };
