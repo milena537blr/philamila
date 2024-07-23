@@ -33,7 +33,7 @@ export const PublicExchangePage = ({
   return (
     <>
       <Seo
-        title={`${exchange.position} | ${exchange.location}`}
+        title={`${exchange.number} | ${exchange.locationFrom}`}
       />
       <Stack w="full">
         <PublicExchangeInfo exchange={exchange} />
@@ -44,7 +44,7 @@ export const PublicExchangePage = ({
             opacity: '0.9',
           }}
           as="a"
-          href={`mailto:${customer?.email}?subject=Application for ${exchange.position} position`}
+          href={`mailto:${customer?.email}?subject=Application for ${exchange.number} number`}
           target="_blank"
         >
           Apply

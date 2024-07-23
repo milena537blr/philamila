@@ -17,16 +17,16 @@ const columns: DataTableProps<
   (typeof data)[0]
 >['columns'] = [
   {
-    title: 'Position',
-    field: 'position',
+    title: 'Number',
+    field: 'number',
   },
   {
-    title: 'Department',
-    field: 'department',
+    title: 'Location From',
+    field: 'locationFrom',
   },
   {
-    title: 'Location',
-    field: 'location',
+    title: 'Location To',
+    field: 'locationTo',
   },
 ];
 

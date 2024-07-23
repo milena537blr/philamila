@@ -1,14 +1,13 @@
 import { Entity } from '@/types';
 
 export type Exchange = Entity & {
+  number: string;
   customerId: string;
-  position: string;
-  info: string;
-  location: string;
-  department: string;
+  locationFrom: string;
+  locationTo: string;
 };
 
 export type CreateExchangeData = Pick<
   Exchange,
-  'position' | 'department' | 'location' | 'info'
+  'number' | 'locationFrom' | 'locationTo'
 >;

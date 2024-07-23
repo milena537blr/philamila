@@ -24,16 +24,16 @@ const getTableColumns = (
   const tableColumns: DataTableProps<Exchange>['columns'] =
     [
       {
-        title: 'Position',
-        field: 'position',
+        title: 'Number',
+        field: 'number',
       },
       {
-        title: 'Department',
-        field: 'department',
+        title: 'From',
+        field: 'locationFrom',
       },
       {
-        title: 'Location',
-        field: 'location',
+        title: 'To',
+        field: 'locationTo',
       },
       {
         title: '',
