@@ -24,20 +24,18 @@ const LandingPage = () => {
             member and you receive another set back!
           </Text>
           <Link href={'/customers/amYXmIyT9mD9GyO6CCr'}>
-            Milena Exchange List
+            Customer exchange list: Milena Exchange List
           </Link>
           <Link
             href={
-              '/customers/amYXmIyT9mD9GyO6CCr/exchanges/2LJ_sgmy_880G9WivH5Hf'
+              '/customers/amYXmIyT9mD9GyO6CCr/exchanges/wS6UeppUQoiXGTzAI6XrM'
             }
           >
-            Milena Exchange US-01
+            Customer particular exchange: Milena Exchange
+            US-01
           </Link>
-          <Link
-            href={'/dashboard/exchanges'}
-            variant="solid"
-          >
-            Get Started
+          <Link href={'/dashboard/exchanges'}>
+            My exchanges: /dashboard/exchanges
           </Link>
         </VStack>
       </Center>

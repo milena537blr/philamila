@@ -22,9 +22,9 @@ export const CreateExchangeForm = ({
         w="full"
         spacing="8"
       >
-        <InputField label="Position" />
-        <InputField label="Department" />
-        <InputField label="Location" />
+        <InputField label="Number" />
+        <InputField label="From" />
+        <InputField label="To" />
 
         <InputField type="textarea" label="Info" />
 
