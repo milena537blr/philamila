@@ -1,7 +1,7 @@
 npm ERR! code ERESOLVE
 npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR! 
-npm ERR! While resolving: jobs-app@undefined
+npm ERR! While resolving: exchanges-app@undefined
 npm ERR! Found: next@12.3.4
 npm ERR! node_modules/next
 npm ERR!   next@"^12.2.5" from the root project
