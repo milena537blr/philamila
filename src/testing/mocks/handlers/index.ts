@@ -11,14 +11,13 @@ export const handlers = [
   // ...authHandlers,
   // ...exchangesHandlers,
   // ...customersHandlers,
-  /* rest.get(`${API_URL}/healthcheck`, (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({ healthy: true })
-    );
-  }), */
   http.get(`${API_URL}/healthcheck`, () => {
-    // ...and respond to them using this JSON response.
-    return HttpResponse.json({ healthy: true });
+    return HttpResponse.json(
+      { healthy: true },
+      {
+        status: 200,
+        statusText: 'Healthy',
+      }
+    );
   }),
 ];
