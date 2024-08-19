@@ -1,39 +1,29 @@
-import { http, HttpResponse } from 'msw';
+import { http, HttpResponse, delay } from 'msw';
 
 import { API_URL } from '@/config/constants';
 
-/* import {
+import {
   authenticate,
-  requireAuth,
+  // requireAuth,
   AUTH_COOKIE,
-} from '../utils'; */
+} from '../utils';
 
 const loginHandler = http.post(
   `${API_URL}/auth/login`,
-  ({ request }) => {
-    console.log('111111');
-    if (!request.headers.has('cookie')) {
-      throw new HttpResponse(null, { status: 400 });
-    }
-  }
-);
-
-/* const loginHandler = rest.post(
-  `${API_URL}/auth/login`,
-  async (req, res, ctx) => {
-    const credentials = await req.json();
+  async ({ request }) => {
+    const credentials: any = await request.json();
     const { user, jwt } = authenticate(credentials);
-
-    return res(
-      ctx.delay(300),
-      ctx.cookie(AUTH_COOKIE, jwt, {
-        path: '/',
-        httpOnly: true,
-      }),
-      ctx.json({ user })
+    await delay(300);
+    return HttpResponse.json(
+      { user },
+      {
+        headers: {
+          'Set-Cookie': AUTH_COOKIE + '=' + jwt,
+        },
+      }
     );
   }
-); */
+);
 
 /*
 const logoutHandler = rest.post(
