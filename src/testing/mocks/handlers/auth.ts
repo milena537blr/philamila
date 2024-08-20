@@ -4,7 +4,7 @@ import { API_URL } from '@/config/constants';
 
 import {
   authenticate,
-  // requireAuth,
+  requireAuth,
   AUTH_COOKIE,
 } from '../utils';
 
@@ -25,32 +25,35 @@ const loginHandler = http.post(
   }
 );
 
-/*
-const logoutHandler = rest.post(
+const logoutHandler = http.post(
   `${API_URL}/auth/logout`,
-  async (req, res, ctx) => {
-    return res(
-      ctx.delay(300),
-      ctx.cookie(AUTH_COOKIE, '', {
-        path: '/',
-        httpOnly: true,
-      }),
-      ctx.json({ success: true })
+  async () => {
+    await delay(300);
+    return HttpResponse.json(
+      { success: true },
+      {
+        headers: {
+          'Set-Cookie': AUTH_COOKIE + '=' + '',
+        },
+      }
     );
   }
 );
 
-const meHandler = rest.get(
+const meHandler = http.get(
   `${API_URL}/auth/me`,
-  async (req, res, ctx) => {
-    const user = requireAuth({ req, shouldThrow: false });
-
-    return res(ctx.delay(300), ctx.json(user));
+  async (req) => {
+    const user = requireAuth({
+      req,
+      shouldThrow: false,
+    });
+    await delay(300);
+    return HttpResponse.json(user);
   }
-); */
+);
 
 export const authHandlers = [
   loginHandler,
-  // logoutHandler,
-  // meHandler,
+  logoutHandler,
+  meHandler,
 ];
