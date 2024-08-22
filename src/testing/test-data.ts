@@ -24,11 +24,11 @@ export const testData = {
   exchanges: [
     {
       id: 'wS6UeppUQoiXGTzAI6XrM',
+      createdAt: 1647070016299,
+      customerId: 'amYXmIyT9mD9GyO6CCr',
       number: 'US-01',
       locationFrom: 'USA',
       locationTo: 'Belarus',
-      createdAt: 1647070016299,
-      customerId: 'amYXmIyT9mD9GyO6CCr',
     },
   ],
 };

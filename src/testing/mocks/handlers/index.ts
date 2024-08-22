@@ -5,11 +5,11 @@ import { API_URL } from '@/config/constants';
 
 import { authHandlers } from './auth';
 // import { customersHandlers } from './customers';
-// import { exchangesHandlers } from './exchanges';
+import { exchangesHandlers } from './exchanges';
 
 export const handlers = [
   ...authHandlers,
-  // ...exchangesHandlers,
+  ...exchangesHandlers,
   // ...customersHandlers,
   http.get(`${API_URL}/healthcheck`, () => {
     return HttpResponse.json(

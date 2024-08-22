@@ -23,10 +23,9 @@ const models = {
     id: primaryKey(uid),
     createdAt: Date.now,
     customerId: String,
-    position: String,
-    info: String,
-    location: String,
-    department: String,
+    number: String,
+    locationFrom: String,
+    locationTo: String,
   },
 };
 
