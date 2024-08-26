@@ -3,7 +3,7 @@ import { http, HttpResponse, delay } from 'msw';
 import { API_URL } from '@/config/constants';
 
 import { db } from '../db';
-// import { requireAuth } from '../utils';
+import { requireAuth } from '../utils';
 
 const getExchangesHandler = http.get(
   `${API_URL}/exchanges`,
@@ -57,13 +57,11 @@ const getExchangeHandler = http.get(
   }
 );
 
-/* const createExchangeHandler = http.post(
+const createExchangeHandler = http.post(
   `${API_URL}/exchanges`,
   async (req) => {
-    const user = requireAuth({req});
-    console.log("333-", user);
-    const exchangeData = await req.request.json();
-    console.log("111", exchangeData);
+    const user = requireAuth({ req });
+    const exchangeData: any = await req.request.json();
 
     const exchange = db.exchange.create({
       ...exchangeData,
@@ -78,31 +76,10 @@ const getExchangeHandler = http.get(
       }
     );
   }
-); */
-
-/* 
-const createExchangeHandler = rest.post(
-  `${API_URL}/exchanges`,
-  async (req, res, ctx) => {
-    const user = requireAuth({ req });
-
-    const exchangeData = await req.json();
-
-    const exchange = db.exchange.create({
-      ...exchangeData,
-      customerId: user?.customerId,
-    });
-
-    return res(
-      ctx.delay(300),
-      ctx.status(200),
-      ctx.json(exchange)
-    );
-  }
-); */
+);
 
 export const exchangesHandlers = [
   getExchangesHandler,
   getExchangeHandler,
-  // createExchangeHandler,
+  createExchangeHandler,
 ];
