@@ -7,16 +7,16 @@ import { ReactElement } from 'react';
 
 import { NotFound } from '@/components/not-found';
 import { Seo } from '@/components/seo';
-import { CustomerInfo } from '@/features/customers';
+import {
+  getCustomer,
+  CustomerInfo,
+} from '@/features/customers';
 import {
   ExchangesList,
   Exchange,
+  getExchanges,
 } from '@/features/exchanges';
 import { PublicLayout } from '@/layouts/public-layout';
-import {
-  getExchanges,
-  getCustomer,
-} from '@/testing/test-data';
 
 type PublicCustomerPageProps =
   InferGetServerSidePropsType<typeof getServerSideProps>;
@@ -66,10 +66,12 @@ export const getServerSideProps = async ({
   const customerId = params?.customerId as string;
 
   const [customer, exchanges] = await Promise.all([
-    getCustomer(customerId).catch(() => null),
-    getExchanges(customerId).catch(
-      () => [] as Exchange[]
-    ),
+    getCustomer({ customerId }).catch(() => null),
+    getExchanges({
+      params: {
+        customerId: customerId,
+      },
+    }).catch(() => [] as Exchange[]),
   ]);
 
   return {

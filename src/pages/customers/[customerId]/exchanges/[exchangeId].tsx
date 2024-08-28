@@ -7,12 +7,12 @@ import { ReactElement } from 'react';
 
 import { NotFound } from '@/components/not-found';
 import { Seo } from '@/components/seo';
-import { PublicExchangeInfo } from '@/features/exchanges';
-import { PublicLayout } from '@/layouts/public-layout';
+import { getCustomer } from '@/features/customers';
 import {
   getExchange,
-  getCustomer,
-} from '@/testing/test-data';
+  PublicExchangeInfo,
+} from '@/features/exchanges';
+import { PublicLayout } from '@/layouts/public-layout';
 
 type PublicExchangePageProps =
   InferGetServerSidePropsType<typeof getServerSideProps>;
@@ -69,8 +69,8 @@ export const getServerSideProps = async ({
   const exchangeId = params?.exchangeId as string;
 
   const [customer, exchange] = await Promise.all([
-    getCustomer(customerId).catch(() => null),
-    getExchange(exchangeId).catch(() => null),
+    getCustomer({ customerId }).catch(() => null),
+    getExchange({ exchangeId }).catch(() => null),
   ]);
 
   return {
