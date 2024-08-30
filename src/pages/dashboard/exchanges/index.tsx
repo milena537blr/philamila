@@ -5,19 +5,21 @@ import { ReactElement } from 'react';
 import { Link } from '@/components/link';
 import { Loading } from '@/components/loading';
 import { Seo } from '@/components/seo';
-import { ExchangesList } from '@/features/exchanges';
-import { DashboardLayout } from '@/layouts/dashboard-layout';
 import {
+  ExchangesList,
   useExchanges,
-  useUser,
-} from '@/testing/test-data';
+} from '@/features/exchanges';
+import { DashboardLayout } from '@/layouts/dashboard-layout';
+import { useUser } from '@/testing/test-data';
 
 const DashboardExchangesPage = () => {
   const user = useUser();
 
-  const exchanges = useExchanges(
-    user.data?.customerId ?? ''
-  );
+  const exchanges = useExchanges({
+    params: {
+      customerId: user.data?.customerId ?? '',
+    },
+  });
 
   if (exchanges.isLoading) return <Loading />;
 

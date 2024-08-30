@@ -4,15 +4,17 @@ import { ReactElement } from 'react';
 import { Loading } from '@/components/loading';
 import { NotFound } from '@/components/not-found';
 import { Seo } from '@/components/seo';
-import { DashboardExchangeInfo } from '@/features/exchanges';
+import {
+  DashboardExchangeInfo,
+  useExchange,
+} from '@/features/exchanges';
 import { DashboardLayout } from '@/layouts/dashboard-layout';
-import { useExchange } from '@/testing/test-data';
 
 const DashboardExchangePage = () => {
   const router = useRouter();
   const exchangeId = router.query.exchangeId as string;
 
-  const exchange = useExchange(exchangeId);
+  const exchange = useExchange({ exchangeId });
 
   if (exchange.isLoading) {
     return <Loading />;
