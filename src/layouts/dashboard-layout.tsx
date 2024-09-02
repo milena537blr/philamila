@@ -11,7 +11,7 @@ import { ReactNode } from 'react';
 import { Button } from '@/components/button';
 import { Link } from '@/components/link';
 import {
-  // Protected,
+  Protected,
   useUser,
   useLogout,
 } from '@/features/auth';
@@ -26,19 +26,21 @@ export const DashboardLayout = ({
   const user = useUser();
 
   return (
-    <Box as="section" h="100vh" overflowY="auto">
-      <Navbar />
-      <Container as="main" maxW="container.lg" py="12">
-        {children}
-      </Container>
-      <Box py="8" textAlign="center">
-        <Link
-          href={`/customers/${user.data?.customerId}`}
-        >
-          View Public Customer Page
-        </Link>
+    <Protected>
+      <Box as="section" h="100vh" overflowY="auto">
+        <Navbar />
+        <Container as="main" maxW="container.lg" py="12">
+          {children}
+        </Container>
+        <Box py="8" textAlign="center">
+          <Link
+            href={`/customers/${user.data?.customerId}`}
+          >
+            View Public Customer Page
+          </Link>
+        </Box>
       </Box>
-    </Box>
+    </Protected>
   );
 };
 

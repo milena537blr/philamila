@@ -5,12 +5,12 @@ import { ReactElement } from 'react';
 import { Link } from '@/components/link';
 import { Loading } from '@/components/loading';
 import { Seo } from '@/components/seo';
+import { useUser } from '@/features/auth';
 import {
   ExchangesList,
   useExchanges,
 } from '@/features/exchanges';
 import { DashboardLayout } from '@/layouts/dashboard-layout';
-import { useUser } from '@/testing/test-data';
 
 const DashboardExchangesPage = () => {
   const user = useUser();
