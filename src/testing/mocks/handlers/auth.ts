@@ -14,11 +14,12 @@ const loginHandler = http.post(
     const credentials: any = await request.json();
     const { user, jwt } = authenticate(credentials);
     await delay(300);
+    // console.log(`${AUTH_COOKIE}=${jwt}; Path=/; HttpOnly;`);
     return HttpResponse.json(
       { user },
       {
         headers: {
-          'Set-Cookie': `${AUTH_COOKIE}=${jwt}; Path=/; HttpOnly;`,
+          'Set-Cookie': `${AUTH_COOKIE}=${jwt}; Path=/;`,
         },
       }
     );
@@ -33,7 +34,7 @@ const logoutHandler = http.post(
       { success: true },
       {
         headers: {
-          'Set-Cookie': AUTH_COOKIE + '=' + '',
+          'Set-Cookie': `${AUTH_COOKIE}=; Path=/;`,
         },
       }
     );
