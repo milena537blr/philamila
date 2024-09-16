@@ -16,7 +16,7 @@ const DashboardCreateExchangePage = () => {
       type: 'success',
       title: 'Success',
       duration: 5000,
-      message: 'Exchange Created!',
+      message: 'Exchange created!',
     });
     router.push(`/dashboard/exchanges`);
   };

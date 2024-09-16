@@ -46,7 +46,7 @@ export const CreateExchangeForm = ({
           error={formState.errors['locationTo']}
         />
         <InputField
-          label="LocationTo"
+          label="locationFrom"
           {...register('locationFrom', {
             required: 'Required',
           })}
